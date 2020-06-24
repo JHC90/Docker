@@ -88,6 +88,13 @@ dadurch muss nicht immer sudo vroab geschrieben werden, bevor man mit Docker Arb
     <td>
     </td>
   </tr>
+  <tr>
+    <td> docker container run <mark>--rm</mark> -it ubuntu:14.04 bash </td>
+    <td>Starten eine Bash in Ubuntu, wenn ich den Container verlasse wird der Container direkt wieder gelöscht|| im grunde kann so ein Container aufgerufen werden, der Dienst verwendet und mit dem schliesen der session ist der Container wieder weg</td>
+    <td>
+    </td>
+  </tr>
+ 
   
 <table>
 
@@ -140,8 +147,8 @@ dadurch muss nicht immer sudo vroab geschrieben werden, bevor man mit Docker Arb
   </tr>
   <tr>
     <td>docker network create --driver</td>
-    <td></td>
-    <td>docker network create mynetwork</td>
+    <td>hier wird direkt ein Netzwerk erstellt. In diesem Netz gibt es dann automatisch einen DNS-Service</td>
+    <td>docker network create mynetwork, Das geht aber nicht an dem Bridge Default netz</td>
   </tr>
   <tr>
     <td>docker container run -d --name nginxNew --network <mark>NetworkName</mark>< nginx</td>
@@ -158,17 +165,29 @@ dadurch muss nicht immer sudo vroab geschrieben werden, bevor man mit Docker Arb
     <td>kann man sich vorstellen wie neue nic raus und dann eben nur noch eine</td>
     <td></td>
   </tr>
+  <tr>
+    <td>docker container run -d --net dude --net-alias search elasticsearch:2</td>
+    <td>hier wird ein Container erzeugt der keinen namen hat, aber dafür ein alias. es können mehere Container mit dem gleichen Alias erstellt werden. unter diesem Alias ist dann die Gruppe an Container anzusprechen. Man könnte sagen das ist ein LoadBalancing für Idioten</td>
+    <td></td>
+  </tr>
 <table>
 
 
+
 <hr>
-# hier die Veröffneltichung von Container
+# hier die Veröffentlichung von Container
+<a href="[./1_CreateShareDriveBetweenServerAndImage.md](https://hub.docker.com/)">DokerHub</a>
 
 <table style="width:100%">
   <tr>
     <th>Command</th>
     <th>Umsetzung</th>
     <th> mögliche Parameter</th>
+  </tr>
+  <tr>
+    <td>docker login</td>
+    <td>anschließend werd ich nach meinen Credentials gefraft, die sind wie immer verstaut </td>
+    <td>BSP:  docker commit c52186187013 jhc1990/test</td>
   </tr>
   <tr>
     <td>docker commit <mark>Container-id</mark> <mark>Container-id</mark><mark>„Image-Name“</mark></td>
